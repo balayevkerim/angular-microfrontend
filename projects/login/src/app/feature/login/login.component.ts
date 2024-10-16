@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/models/user';
-import { AuthService } from 'src/app/shared/auth/auth.service';
+import { User } from '@@models';
+import { AuthService } from '@@auth';
 
 @Component({
   selector: 'app-login',
@@ -13,9 +13,8 @@ export class LoginComponent {
 
   login(user: User) {
     this.authService.login(user);
-    this.router.navigateByUrl('/', {
+    this.router.navigateByUrl('/users', {
       onSameUrlNavigation: 'reload',
-      skipLocationChange: true,
     });
   }
 }
